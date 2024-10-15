@@ -1,6 +1,6 @@
 ## Lesson 01
 
-### Computational Thinking and Problem Solving
+### Computational Thinking, Problem Solving, Binary Digits, and Encoding
 - All computer science is, is the use of compuational thinking to solve problems. Programming is one way to implement computational thinking. It uses human-readable code to communicate with the computer. This is called a "program." The basic structure of a program is this:
   - INPUT -> [black box] -> OUTPUT. The Programmer's job is to write the code that goes in the black box.
 - Let's say we are a owner of a grocery store, and we need to count the number of apples we have avaiable for sale. We can simply use our fingers. We can count the apples one by one, and keep track of the count. If we only use our fingers, we are using a unary system, or base-1 counting system. A unary systsem only uses a single symbol to count. Other examples of unary counting are hash marks, or tally marks.
