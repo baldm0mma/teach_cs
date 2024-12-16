@@ -3,145 +3,119 @@
 ### JavaScript Fundamentals: Syntax, Data Types, and Data Structures
 
 #### Introduction (5 minutes)
-In our first two lessons, we learned about binary and Boolean logic. Now we'll learn the fundamental building blocks of JavaScript: its syntax, data types, and data structures. Think of this as learning the vocabulary and grammar of a new language.
+We've learned about binary and Boolean logic in our previous lessons. Now we'll learn the building blocks of JavaScript - think of this as learning the vocabulary and grammar of our new programming language.
 
 #### JavaScript Syntax Basics (15 minutes)
 
-1. **Keywords and Variable Declaration**
+1. **Variables and Constants**
    ```javascript
-   // Variable declaration keywords
-   let changeableVariable = 1;      // Block-scoped, can be reassigned
-   const constant = 2;              // Block-scoped, cannot be reassigned
-   var oldStyle = 3;               // Function-scoped (avoid using)
-
-   // Other important keywords
-   if (condition) {}               // Conditional
-   for (let i = 0; i < 5; i++) {} // Loop
-   while (condition) {}           // Another loop
-   function name() {}             // Function declaration
-   return value;                  // Return from function
-   class MyClass {}              // Class declaration
-   try {} catch {} finally {}    // Error handling
-   import {} from 'module';      // Module import
-   export default thing;         // Module export
+   // Variables can change
+   let score = 0;
+   score = 10;
+   
+   // Constants can't change
+   const playerName = "John";
+   
+   // Avoid using 'var' (old way)
+   var oldWay = "don't use this";
    ```
 
-2. **Operators**
+2. **Basic Operators**
    ```javascript
-   // Arithmetic
-   let sum = 5 + 3;        // Addition
-   let diff = 10 - 4;      // Subtraction
-   let product = 6 * 2;    // Multiplication
-   let quotient = 15 / 3;  // Division
-   let remainder = 17 % 5; // Modulus
-   let power = 2 ** 3;     // Exponentiation
+   // Math operators
+   let sum = 5 + 3;          // 8
+   let difference = 10 - 4;   // 6
+   let product = 6 * 2;      // 12
+   let quotient = 15 / 3;    // 5
+   let remainder = 17 % 5;   // 2 (modulus/remainder)
+   let power = 2 ** 3;       // 8 (exponential)
 
-   // Assignment
-   let x = 1;             // Basic assignment
-   x += 2;                // Add and assign
-   x -= 1;                // Subtract and assign
-   x *= 3;                // Multiply and assign
-   x /= 2;                // Divide and assign
+   // Combining operators
+   let result = (5 + 3) * 2;  // 16
 
-   // Comparison
-   let isEqual = 5 === 5;        // Strict equality
-   let isNotEqual = 5 !== '5';   // Strict inequality
-   let isGreater = 6 > 5;        // Greater than
-   let isLessOrEqual = 4 <= 4;   // Less than or equal
-
-   // Logical
-   let and = true && false;      // Logical AND
-   let or = true || false;       // Logical OR
-   let not = !true;              // Logical NOT
+   // Shorthand operators
+   let number = 5;
+   number += 3;  // same as: number = number + 3
+   number -= 2;  // same as: number = number - 2
+   number *= 2;  // same as: number = number * 2
    ```
 
-3. **Functions**
+3. **Comparison Operators**
    ```javascript
-   // Function declaration
-   function greet(name) {
-       return `Hello, ${name}!`;
-   }
+   // Comparing values
+   let isEqual = 5 === 5;        // true
+   let isNotEqual = 5 !== '5';   // true
+   let isGreater = 6 > 5;        // true
+   let isLessOrEqual = 4 <= 4;   // true
 
-   // Arrow function
-   const greetArrow = (name) => `Hello, ${name}!`;
-
-   // Function with default parameters
-   function greetWithDefault(name = 'Guest') {
-       return `Hello, ${name}!`;
-   }
-
-   // Rest parameters
-   function sum(...numbers) {
-       return numbers.reduce((total, num) => total + num, 0);
-   }
+   // Common mistake: using = instead of ===
+   let x = 5;         // assignment
+   let y = x === 5;   // comparison
    ```
 
-4. **Template Literals and String Interpolation**
+4. **Logical Operators**
    ```javascript
-   const name = 'Alice';
-   const age = 25;
-   console.log(`${name} is ${age} years old`);
+   // AND (&&): both must be true
+   let canDrive = age >= 16 && hasLicense;
+
+   // OR (||): at least one must be true
+   let canEnter = isEmployee || hasInvitation;
+
+   // NOT (!): reverses true/false
+   let isNotValid = !isValid;
    ```
 
-#### Basic Data Types (10 minutes)
+#### Data Types (15 minutes)
 
 1. **Numbers**
    ```javascript
-   // Integers
+   // Whole numbers
    let age = 25;
    let temperature = -5;
    
-   // Floating point (decimals)
+   // Decimal numbers
    let price = 19.99;
    let pi = 3.14159;
    
-   // Scientific notation
-   let largeNumber = 1e6;  // 1 million
+   // Math operations
+   let total = price * 2;
+   let average = (10 + 20 + 30) / 3;
    ```
 
-2. **Strings**
+2. **Strings (Text)**
    ```javascript
+   // Different ways to create strings
    let name = "Alice";
-   let message = 'Hello, World!';
+   let message = 'Hello there';
    
-   // Template strings (modern JS)
+   // Modern way (template literals)
    let greeting = `Hello, ${name}!`;
    
    // String operations
-   console.log(name.length);  // 5
-   console.log(name.toUpperCase());  // "ALICE"
+   let length = name.length;              // 5
+   let uppercase = name.toUpperCase();    // "ALICE"
+   let substring = name.slice(0, 2);      // "Al"
    ```
 
 3. **Booleans**
    ```javascript
-   let isLoggedIn = true;
-   let hasPermission = false;
+   let isRaining = true;
+   let isSunny = false;
    
-   // Boolean operations
-   let canAccess = isLoggedIn && hasPermission;
+   // Common boolean operations
+   let isWeekend = true;
+   let isHoliday = false;
+   let canSleepIn = isWeekend || isHoliday;  // true
    ```
 
-4. **undefined and null**
+4. **null and undefined**
    ```javascript
-   let notDefined;  // undefined
-   let intentionallyEmpty = null;
-   ```
-
-#### Advanced Data Types (10 minutes)
-
-1. **Symbol**
-   ```javascript
-   // Unique identifiers
-   const id = Symbol('id');
-   const anotherId = Symbol('id');
-   console.log(id === anotherId);  // false
-   ```
-
-2. **BigInt**
-   ```javascript
-   // For really big numbers
-   const bigNumber = 9007199254740991n;
-   const result = bigNumber + 1n;
+   // undefined: variable declared but not assigned
+   let notDefined;
+   console.log(notDefined);  // undefined
+   
+   // null: intentionally empty
+   let empty = null;
    ```
 
 #### Data Structures (20 minutes)
@@ -151,212 +125,227 @@ In our first two lessons, we learned about binary and Boolean logic. Now we'll l
    // Creating arrays
    let fruits = ['apple', 'banana', 'orange'];
    let numbers = [1, 2, 3, 4, 5];
+   let mixed = ['text', 42, true, null];
    
-   // Accessing elements
-   console.log(fruits[0]);  // 'apple'
+   // Accessing elements (starts at 0)
+   console.log(fruits[0]);     // 'apple'
+   console.log(fruits[1]);     // 'banana'
    
-   // Array methods
-   fruits.push('grape');  // Add to end
-   fruits.pop();  // Remove from end
-   fruits.unshift('kiwi');  // Add to start
-   fruits.shift();  // Remove from start
+   // Modifying arrays
+   fruits.push('grape');       // Add to end
+   fruits.pop();              // Remove from end
+   fruits.unshift('kiwi');    // Add to start
+   fruits.shift();           // Remove from start
    
-   // Useful array operations
+   // Useful array methods
    let length = fruits.length;
    let includesBanana = fruits.includes('banana');
-   
-   // Array iteration
-   fruits.forEach(fruit => console.log(fruit));
+   let position = fruits.indexOf('orange');
    ```
 
 2. **Objects**
    ```javascript
-   // Creating objects
+   // Creating an object
    let person = {
        name: "Bob",
        age: 30,
-       isStudent: false,
-       hobbies: ['reading', 'gaming']
+       hobbies: ['reading', 'gaming'],
+       address: {
+           city: "New York",
+           zip: "10001"
+       }
    };
    
    // Accessing object properties
-   console.log(person.name);  // Dot notation
-   console.log(person['age']);  // Bracket notation
+   console.log(person.name);           // Dot notation
+   console.log(person['age']);         // Bracket notation
+   console.log(person.address.city);   // Nested properties
    
-   // Adding/modifying properties
-   person.location = "New York";
+   // Modifying objects
    person.age = 31;
+   person.email = "bob@example.com";   // Add new property
+   delete person.email;                // Remove property
    ```
 
-3. **Maps**
+#### Advanced Data Operations (20 minutes)
+
+1. **Working with Arrays**
    ```javascript
-   let userMap = new Map();
+   const numbers = [1, 2, 3, 4, 5];
    
-   // Setting values
-   userMap.set('alice', { age: 25, role: 'admin' });
-   userMap.set('bob', { age: 30, role: 'user' });
+   // forEach - do something with each item
+   numbers.forEach(function(number) {
+       console.log(number * 2);
+   });
    
-   // Getting values
-   console.log(userMap.get('alice'));
+   // map - transform each item
+   const doubled = numbers.map(function(number) {
+       return number * 2;
+   });
+   
+   // filter - keep only some items
+   const evenNumbers = numbers.filter(function(number) {
+       return number % 2 === 0;
+   });
+   
+   // find - get first matching item
+   const firstBigNumber = numbers.find(function(number) {
+       return number > 3;
+   });
+   
+   // Using arrow functions (shorter way)
+   const tripled = numbers.map(num => num * 3);
+   const bigNumbers = numbers.filter(num => num > 3);
    ```
 
-4. **Sets**
+2. **Working with Objects**
    ```javascript
-   let uniqueNumbers = new Set([1, 2, 2, 3, 3, 4]);
-   console.log(uniqueNumbers);  // Set(4) {1, 2, 3, 4}
-   
-   uniqueNumbers.add(5);
-   uniqueNumbers.delete(1);
-   ```
-
-#### Advanced Data Structure Operations (15 minutes)
-
-1. **Array Methods Deep Dive**
-   ```typescript
-   interface Task {
-       id: number;
-       title: string;
-       completed: boolean;
-   }
-
-   const tasks: Task[] = [
-       { id: 1, title: 'Learn JS', completed: false },
-       { id: 2, title: 'Build Project', completed: true },
-       { id: 3, title: 'Write Tests', completed: false }
-   ];
-
-   // Map - transform each element
-   const titles = tasks.map(task => task.title);
-
-   // Filter - get subset of elements
-   const incompleteTasks = tasks.filter(task => !task.completed);
-
-   // Find - get first matching element
-   const firstIncomplete = tasks.find(task => !task.completed);
-
-   // Reduce - accumulate values
-   const totalTasks = tasks.reduce((count, task) => count + 1, 0);
-
-   // Sort - arrange elements
-   const sortedTasks = [...tasks].sort((a, b) => a.id - b.id);
-
-   // Some/Every - check conditions
-   const hasCompletedTasks = tasks.some(task => task.completed);
-   const allTasksComplete = tasks.every(task => task.completed);
-   ```
-
-2. **Object Operations**
-   ```typescript
-   interface Person {
-       name: string;
-       age: number;
-       skills: string[];
-   }
-
-   // Object destructuring
-   const person: Person = {
+   const user = {
        name: 'Bob',
        age: 30,
-       skills: ['JavaScript', 'TypeScript']
+       hobbies: ['reading', 'gaming']
    };
-
-   const { name, age } = person;
-
-   // Spread operator
-   const updatedPerson = {
-       ...person,
-       age: 31,
-       location: 'New York'
+   
+   // Getting all keys
+   const keys = Object.keys(user);     // ['name', 'age', 'hobbies']
+   
+   // Getting all values
+   const values = Object.values(user);  // ['Bob', 30, ['reading', 'gaming']]
+   
+   // Copying objects
+   const userCopy = { ...user };       // Spread operator
+   
+   // Combining objects
+   const moreInfo = {
+       city: 'New York',
+       email: 'bob@example.com'
    };
-
-   // Object methods
-   const keys = Object.keys(person);
-   const values = Object.values(person);
-   const entries = Object.entries(person);
-
-   // Freezing objects
-   const frozenPerson = Object.freeze(person);
+   const fullProfile = { ...user, ...moreInfo };
    ```
 
-#### Practical Example: Building a Library Management System (15 minutes)
-```typescript
-interface Book {
-    id: string;
-    title: string;
-    author: string;
-    available: boolean;
-    borrower?: string;
-}
+3. **String Operations**
+   ```javascript
+   const text = "Hello, World!";
+   
+   // Finding text
+   const hasWorld = text.includes('World');    // true
+   const position = text.indexOf('World');     // 7
+   
+   // Changing text
+   const shouting = text.toUpperCase();        // "HELLO, WORLD!"
+   const whispering = text.toLowerCase();      // "hello, world!"
+   
+   // Splitting and joining
+   const words = text.split(' ');              // ['Hello,', 'World!']
+   const combined = words.join('-');           // "Hello,-World!"
+   ```
 
-class Library {
-    private books: Map<string, Book> = new Map();
-    private borrowHistory: Set<string> = new Set();
+#### Practical Examples (20 minutes)
 
-    addBook(title: string, author: string): void {
-        const id = `book_${Date.now()}`;
-        this.books.set(id, {
-            id,
-            title,
-            author,
-            available: true
-        });
+1. **Building a Todo List**
+   ```javascript
+   // Store todos in an array
+   let todos = [];
+
+   // Add a todo
+   function addTodo(text) {
+       todos.push({
+           text: text,
+           completed: false,
+           created: new Date()
+       });
+   }
+
+   // Mark a todo as complete
+   function completeTodo(index) {
+       if (index >= 0 && index < todos.length) {
+           todos[index].completed = true;
+       }
+   }
+
+   // Remove a todo
+   function removeTodo(index) {
+       todos = todos.filter((_, i) => i !== index);
+   }
+
+   // Get all incomplete todos
+   function getIncompleteTodos() {
+       return todos.filter(todo => !todo.completed);
+   }
+
+   // Example usage
+   addTodo("Learn JavaScript");
+   addTodo("Build a project");
+   completeTodo(0);
+   console.log(getIncompleteTodos());
+   ```
+
+2. **Score Tracker**
+   ```javascript
+   // Track game scores
+   const gameScores = {
+       scores: [],
+       
+       addScore(points) {
+           this.scores.push(points);
+       },
+       
+       getHighScore() {
+           return Math.max(...this.scores);
+       },
+       
+       getAverageScore() {
+           if (this.scores.length === 0) return 0;
+           const sum = this.scores.reduce((a, b) => a + b, 0);
+           return sum / this.scores.length;
+       },
+       
+       getLastThreeScores() {
+           return this.scores.slice(-3);
+       }
+   };
+
+   // Example usage
+   gameScores.addScore(85);
+   gameScores.addScore(92);
+   gameScores.addScore(78);
+   console.log(gameScores.getAverageScore());
+   ```
+
+#### Practice Exercise: Contact List (Remaining time)
+Build a simple contact management system that can:
+1. Add new contacts
+2. Find contacts by name
+3. Update contact information
+4. Remove contacts
+5. List all contacts
+
+```javascript
+// Start with this structure and expand it
+const contactList = {
+    contacts: [],
+    
+    addContact(name, email, phone) {
+        // Your code here
+    },
+    
+    findContact(name) {
+        // Your code here
+    },
+    
+    updateContact(name, newInfo) {
+        // Your code here
+    },
+    
+    removeContact(name) {
+        // Your code here
+    },
+    
+    listAllContacts() {
+        // Your code here
     }
-
-    borrowBook(bookId: string, borrower: string): boolean {
-        const book = this.books.get(bookId);
-        
-        if (!book || !book.available) {
-            return false;
-        }
-
-        book.available = false;
-        book.borrower = borrower;
-        this.borrowHistory.add(borrower);
-        this.books.set(bookId, book);
-        
-        return true;
-    }
-
-    returnBook(bookId: string): boolean {
-        const book = this.books.get(bookId);
-        
-        if (!book || book.available) {
-            return false;
-        }
-
-        book.available = true;
-        book.borrower = undefined;
-        this.books.set(bookId, book);
-        
-        return true;
-    }
-
-    searchBooks(query: string): Book[] {
-        return Array.from(this.books.values()).filter(book => 
-            book.title.toLowerCase().includes(query.toLowerCase()) ||
-            book.author.toLowerCase().includes(query.toLowerCase())
-        );
-    }
-
-    getBorrowers(): string[] {
-        return Array.from(this.borrowHistory);
-    }
-}
-
-// Usage example
-const library = new Library();
-library.addBook("The JavaScript Way", "John Doe");
-library.addBook("TypeScript in Action", "Jane Smith");
+};
 ```
 
-### Exercise: Enhanced Contact Manager
-Build a contact management system that:
-1. Uses TypeScript interfaces
-2. Implements CRUD operations
-3. Includes search functionality
-4. Validates phone numbers and emails
-5. Prevents duplicates
-6. Maintains a history of changes
-
 ### Next Lesson Preview
-In our next lesson, we'll learn about algorithms and how to use these JavaScript fundamentals to solve real problems!
+In Lesson 4, we'll learn about algorithms - step-by-step procedures for solving problems using the JavaScript tools we've learned today!
