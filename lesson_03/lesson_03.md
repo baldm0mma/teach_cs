@@ -376,3 +376,5 @@ We've learned about binary and Boolean logic in our previous lessons. Now we'll 
 ### Next Lesson Preview
 
 In Lesson 4, we'll learn about algorithms - step-by-step procedures for solving problems using the JavaScript tools we've learned today!
+
+test test test
